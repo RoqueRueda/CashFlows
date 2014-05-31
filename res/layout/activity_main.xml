@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_2"
+    android:baselineAligned="false"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:showDividers="middle"
+    tools:context=".MainActivity" >
+    
+    <!--
+    This layout is a two-pane layout for the News
+    master/detail flow. See res/values-large/refs.xml and
+    res/values-sw600dp/refs.xml for an example of layout aliases
+    that replace the single-pane version of the layout with
+    this two-pane version.
+
+    For more on layout aliases, see:
+    http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
+    -->
+	
+	<RelativeLayout
+	    android:id="@+id/balance_container"
+	    android:layout_width="match_parent"
+	    android:layout_height="70dp"
+	    android:background="@color/black" >
+
+	    <TextView
+	        android:id="@+id/blnc_header"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/total_balance"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="20dp"
+	        android:text="@string/total_balance"
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:textColor="@color/text_white" />
+
+	    <TextView
+	        android:id="@+id/total_balance"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="30dp"
+	        android:text="$100.00"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textColor="@color/text_white" />
+	    
+	</RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/account_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accounts"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/text_white" />
+    
+	<View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:background="@color/divider_blue"
+        android:layout_height="1dp" />
+    
+    <fragment
+        android:id="@+id/account_list"
+        android:name="com.roque.rueda.cashflows.fragments.AccountListFragment"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+        tools:layout="@android:layout/list_content" />
+    
+</LinearLayout>
